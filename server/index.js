@@ -9,7 +9,8 @@ app.listen(port, () => console.log(`Listening on :${port}!`))
 
 fs.readFile("station_codes.csv", "utf8",function (err, data) {
     if (err) throw err;
-    const dataString = processCsvData(data)
+    const processedData = processCsvData(data)
+    fs.writeFile("station_codes.json", JSON.stringify(processedData), "utf8", (err)=>console.error(err))
 });
 
 const processCsvData = function(data){
@@ -21,10 +22,25 @@ const processCsvData = function(data){
     var array  = data.split("\n");
     
     array.forEach(element => {
+        var a = element.split(',');
         output.push(
             {
-                nameKey : element.split(',')
+                name : a[0].toLowerCase().replace(' ', '') ,  
+                crs : crsCode(a[1])
             }
         )
     });
+
+    
+    return output;
+}
+
+const crsCode = function(c){
+    try {
+        return c.replace('\r', '')
+      }
+      catch(error) {
+       return c
+      }
+      
 }
