@@ -3,11 +3,12 @@
 # PDF with colourful graphs, 24 Oct 2019, 19:44, MD BELOW SBAR,
 data = {
     "incident": {
-        "ppmFailures": 11,
+        "ppmFailures": 0.19, # %; percentage
         "type": "MD",
         "date": "20191024",
         "time": "1944",
         "expectedRecovery": 60, #minutes; duration
+        # below not currently needed
         "totalDelays": 150,
         "fullCanc": { # at origin
             "numOfTrains": 1,
@@ -111,8 +112,8 @@ cfg = { # Must be >= 1
     "reactOther": 1.5,
     "reactLateStart": 1.5,
     "fullCanc": 2,
-    "partCanc": 1.6 # Say better than full cancellation but still worse than just a delay.
-
+    "partCanc": 1.6, # Say better than full cancellation but still worse than just a delay.
+    "ppmFailures": 5 # will be parsed to int()
 }
 
 def roundDownMin(min):
@@ -155,9 +156,8 @@ def calculateRecoveryTime(incTime, expRecDuration):
 
     return str(hour).zfill(2) + str(minLeft).zfill(2)
 
-
 def calculateSliceMetric(slice, incidentData):
-    """Calculate the metric of one slice, sum of weighted products, taking into account expected recovery time."""
+    """Calculate the metric of one slice, sum of weighted products, WITHOUT recovery time."""
 
     metric = slice["primary"] * cfg["primary"] + \
              slice["reactOther"] * cfg["reactOther"] + \
@@ -165,38 +165,77 @@ def calculateSliceMetric(slice, incidentData):
              slice["fullCanc"] * cfg["fullCanc"] + \
              slice["partCanc"] * cfg["partCanc"]   
 
-    sliceNo = sliceNoFromIncident(incidentData["time"], slice["time"])
-    if sliceNo is None:# occurred before the accident
-        return 0
-
-    # plus 29 so that it rounds it up to the next slice
-    expectedTimeOfRecovery = calculateRecoveryTime(incidentData["time"], incidentData["expectedRecovery"] + 29)
-
-    expectedSliceNo = sliceNoFromIncident(incidentData["time"], expectedTimeOfRecovery)
-
-    if sliceNo > expectedSliceNo:
-        metric *= timeCost(sliceNo, True)
-    else:
-        metric *= timeCost(sliceNo, False)
-
     return metric
 
-def countAllDelays(slide):
+def mean(numbers):
+    return float(sum(numbers)) / max(len(numbers), 1)
+
+def countAllDelays(slice):
     return slice["primary"] + \
         slice["reactOther"] + \
         slice["reactLateStart"] + \
         slice["fullCanc"] + \
         slice["partCanc"]
 
-slices = []
-delays = []
-metrics = []
-for slice in data["slices"]:
-    slices.append(slice["time"])
-    delays.append(countAllDelays(slice))
-    metrics.append(calculateSliceMetric(slice, data["incident"]))
+def calculateDayMetric(data):
+    """
+    Returns: {
+        slicesTags: [...],
+        delays: [...],
+        metrics: [...],
+        total: float # final metric value for the day
+    }
+    """
+    allSlicesTags = []
+    allMetrics = []
+    allDelays = []
+    
+    metricsOnTime = []
+    metricsLate = []
 
+    for slice in data["slices"]:
+        allSlicesTags.append(slice["time"])
+        allDelays.append(countAllDelays(slice))
+
+        sliceMetric = calculateSliceMetric(slice, data["incident"])
+
+        expectedTimeOfRecovery = calculateRecoveryTime(data["incident"]["time"], data["incident"]["expectedRecovery"] )
+
+        expectedSliceNo = sliceNoFromIncident(data["incident"]["time"], expectedTimeOfRecovery)
+
+        sliceNo = sliceNoFromIncident(data["incident"]["time"], slice["time"])
+        if sliceNo is None:# occurred before the accident
+            metricsOnTime.append(0)
+            allMetrics.append(0)
+        elif sliceNo > expectedSliceNo:
+            sliceMetric *= timeCost(sliceNo, True)
+            metricsLate.append(sliceMetric)
+            allMetrics.append(sliceMetric)
+        else:
+            sliceMetric *= timeCost(sliceNo, False)
+            metricsOnTime.append(sliceMetric)
+            allMetrics.append(sliceMetric)
+
+    meanRatio = sum(metricsLate)
+    if meanRatio == 0:
+        meanRatio = 1
+    meanRatio = sum(metricsOnTime) / meanRatio
+
+
+    for i in range(int(cfg["ppmFailures"])):
+        meanRatio = meanRatio - (meanRatio * data["incident"]["ppmFailures"] / 100) # divide by 100 because in % not in ration
+    
+
+    return {
+        "slicesTags": allSlicesTags,
+        "delays": allDelays,
+        "metrics": allMetrics,
+        "total": meanRatio
+    }
+    
+
+daily = calculateDayMetric(data)
 
 import plotMetric 
 
-plotMetric.plot(slices, delays, metrics)
+plotMetric.plot(daily["slicesTags"], daily["delays"], daily["metrics"], daily["total"])
