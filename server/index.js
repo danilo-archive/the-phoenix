@@ -25,7 +25,7 @@ const processCsvData = function(data){
         var a = element.split(',');
         output.push(
             {
-                name : a[0].toLowerCase().replace(' ', '') ,  
+                name : a[0].toLowerCase().replace(' ', '').replace(' ', '').replace(' ', '').replace(' ', '') ,  
                 crs : crsCode(a[1])
             }
         )
