@@ -23,7 +23,7 @@ for (let i = 0; i < datapack.length; i++) {
     if(wtdDate && ptdDate){
         seconds += (wtdDate - ptdDate) /  1000
     
-        if (e.tpl == "BNBR" || e.tpl =="MARYLBN" || e.tpl =="LMNGTNS" || Math.random()>.95){
+        if (e.tpl == "LEEDS" || e.tpl =="MCKLFLD" || e.tpl =="GARFRTH" || e.tpl == "YORK" || e.tpl == "CSGT"){
             var timeafterstart = ((wtaDate - incidentStartTime)/1000) -3600
             if (timeafterstart >0){
                 var addeddelay =  1800*Math.exp(-Math.random()* timeafterstart/2400)
@@ -34,17 +34,16 @@ for (let i = 0; i < datapack.length; i++) {
                     }
                 }
                 seconds +=Math.floor(addeddelay)
+                //console.log(seconds)
             }
         }
     }
-    if(seconds > 60){
-        e.delaySeconds = seconds
-        console.log(seconds/60)
-    }else{//console.log(seconds)
+   
+    e.delaySeconds = seconds
+    if (seconds >60){
+      //  console.log(seconds)
     }
+    
     newData.push(e)
 }
-
-
-
 
