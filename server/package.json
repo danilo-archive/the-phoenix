@@ -1,0 +1,23 @@
+{
+  "name": "the-phoenix",
+  "version": "1.0.0",
+  "description": "the phoenix",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/danilo-delbusso/the-phoenix.git"
+  },
+  "author": "the phoenix hacktrain team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danilo-delbusso/the-phoenix/issues"
+  },
+  "homepage": "https://github.com/danilo-delbusso/the-phoenix#readme",
+  "dependencies": {
+    "csv": "^5.3.0",
+    "express": "^4.17.1"
+  }
+}
