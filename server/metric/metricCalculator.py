@@ -1,112 +1,5 @@
 
 
-# PDF with colourful graphs, 24 Oct 2019, 19:44, MD BELOW SBAR,
-data = {
-    "incident": {
-        "ppmFailures": 0.19, # %; percentage
-        "type": "MD",
-        "date": "20191024",
-        "time": "1944",
-        "expectedRecovery": 60, #minutes; duration
-        # below not currently needed
-        "totalDelays": 150,
-        "fullCanc": { # at origin
-            "numOfTrains": 1,
-            "delay": 45
-        }   
-    },
-    "slices": [
-        {
-            "time": "1830",
-            "primary": 0,
-            "reactOther": 0,
-            "reactLateStart": 0,
-            "fullCanc": 0, # mins; delays caused by full cancellation
-            "partCanc": 0
-        },
-        { 
-            "time": "1900",
-            "primary": 0,
-            "reactOther": 15,
-            "reactLateStart": 0,
-            "fullCanc": 0, # mins; delays caused by full cancellation
-            "partCanc": 0
-        },
-        {
-            "time": "1930",
-            "primary": 30,
-            "reactOther": 0,
-            "reactLateStart": 15,
-            "fullCanc": 45, # mins; delays caused by full cancellation
-            "partCanc": 0
-        },
-        {
-            "time": "2000",
-            "primary": 0,
-            "reactOther": 30,
-            "reactLateStart": 0,
-            "fullCanc": 0, # mins; delays caused by full cancellation
-            "partCanc": 0
-        },
-        {
-            "time": "2030",
-            "primary": 0,
-            "reactOther": 18,
-            "reactLateStart": 0,
-            "fullCanc": 0, # mins; delays caused by full cancellation
-            "partCanc": 0
-        },
-        {
-            "time": "2100",
-            "primary": 0,
-            "reactOther": 5,
-            "reactLateStart": 0,
-            "fullCanc": 0, # mins; delays caused by full cancellation
-            "partCanc": 0
-        },
-        {
-            "time": "2130",
-            "primary": 0,
-            "reactOther": 40,
-            "reactLateStart": 0,
-            "fullCanc": 0, # mins; delays caused by full cancellation
-            "partCanc": 0
-        },
-        {
-            "time": "2200",
-            "primary": 0,
-            "reactOther": 0,
-            "reactLateStart": 0,
-            "fullCanc": 0, # mins; delays caused by full cancellation
-            "partCanc": 0
-        },
-        {
-            "time": "2230",
-            "primary": 0,
-            "reactOther": 0,
-            "reactLateStart": 0,
-            "fullCanc": 0, # mins; delays caused by full cancellation
-            "partCanc": 0
-        },
-        {
-            "time": "2300",
-            "primary": 0,
-            "reactOther": 20,
-            "reactLateStart": 0,
-            "fullCanc": 0, # mins; delays caused by full cancellation
-            "partCanc": 0
-        },
-        {
-            "time": "2330",
-            "primary": 0,
-            "reactOther": 18,
-            "reactLateStart": 0,
-            "fullCanc": 0, # mins; delays caused by full cancellation
-            "partCanc": 0
-        }
-    ]
-}
-
 cfg = { # Must be >= 1
     "primary": 1,
     "reactOther": 1.5,
@@ -233,9 +126,6 @@ def calculateDayMetric(data):
         "total": meanRatio
     }
     
+import plotMetric
 
-daily = calculateDayMetric(data)
-
-import plotMetric 
-
-plotMetric.plot(daily["slicesTags"], daily["delays"], daily["metrics"], daily["total"])
+plotMetric.plotMetric()

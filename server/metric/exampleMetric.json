@@ -1,0 +1,3 @@
+[{"metrics": 0, "delays": 0, "slice": "18:30"}, {"metrics": 0, "delays": 15, "slice": "19:00"}, {"metrics": 74.21875, "delays": 90, "slice": "19:30"}, {"metrics": 24.375, "delays": 30, "slice": "20:00"}, {"metrics": 15.1875, "delays": 18, "slice": "20:30"}, {"metrics": 5.0, "delays": 5, "slice": "21:00"}, {"metrics": 42.5, "delays": 40, "slice": "21:30"}, {"metrics": 0.0, "delays": 0, "slice": "22:00"}, 
+    {"metrics": 0.0, "delays": 0, "slice": "22:30"}, 
+    {"metrics": 24.999999999999996, "delays": 20, "slice": "23:00"}, {"metrics": 23.625, "delays": 18, "slice": "23:30"}]
