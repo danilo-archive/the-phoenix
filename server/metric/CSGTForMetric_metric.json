@@ -1,1 +1,245 @@
-{"dailyMetric": 3.604928543285934, "slices": [{"metrics": 0, "delays": 0, "slice": "10:00"}, {"metrics": 0, "delays": 0, "slice": "10:30"}, {"metrics": 0, "delays": 0, "slice": "11:00"}, {"metrics": 17.591145833333332, "delays": 22.516666666666666, "slice": "11:30"}, {"metrics": 37.266666666666666, "delays": 45.86666666666667, "slice": "12:00"}, {"metrics": 20.3484375, "delays": 24.116666666666667, "slice": "12:30"}, {"metrics": 29.633333333333333, "delays": 33.86666666666667, "slice": "13:00"}, {"metrics": 0.0, "delays": 0, "slice": "13:30"}, {"metrics": 0.0, "delays": 0, "slice": "14:00"}, {"metrics": 0.0, "delays": 0, "slice": "14:30"}, {"metrics": 0.0, "delays": 0, "slice": "15:00"}, {"metrics": 0.0, "delays": 0, "slice": "15:30"}, {"metrics": 0.0, "delays": 0, "slice": "16:00"}, {"metrics": 0.8624999999999998, "delays": 0.6, "slice": "16:30"}, {"metrics": 20.35, "delays": 13.566666666666666, "slice": "17:00"}, {"metrics": 0.23437499999999994, "delays": 0.15, "slice": "17:30"}, {"metrics": 1.4625000000000004, "delays": 0.9, "slice": "18:00"}, {"metrics": 1.8, "delays": 1.0666666666666667, "slice": "18:30"}, {"metrics": 0.9041666666666667, "delays": 0.5166666666666667, "slice": "19:00"}, {"metrics": 0.0, "delays": 0, "slice": "19:30"}, {"metrics": 1.46875, "delays": 0.7833333333333333, "slice": "20:00"}, {"metrics": 0.0, "delays": 0, "slice": "20:30"}, {"metrics": 2.0, "delays": 1, "slice": "21:00"}, {"metrics": 0.0, "delays": 0, "slice": "21:30"}, {"metrics": 0.0, "delays": 0, "slice": "22:00"}, {"metrics": 0.0, "delays": 0, "slice": "22:30"}, {"metrics": 0.0, "delays": 0, "slice": "23:00"}, {"metrics": 0.0, "delays": 0, "slice": "23:30"}, {"metrics": 0, "delays": 0, "slice": "00:00"}, {"metrics": 0, "delays": 0, "slice": "00:30"}, {"metrics": 0, "delays": 0, "slice": "01:00"}, {"metrics": 0, "delays": 0, "slice": "01:30"}, {"metrics": 0, "delays": 0, "slice": "02:00"}, {"metrics": 0, "delays": 0, "slice": "02:30"}, {"metrics": 0, "delays": 0, "slice": "03:00"}, {"metrics": 0, "delays": 0, "slice": "03:30"}, {"metrics": 0, "delays": 0, "slice": "04:00"}, {"metrics": 0, "delays": 0, "slice": "04:30"}, {"metrics": 0, "delays": 0, "slice": "05:00"}, {"metrics": 0, "delays": 0, "slice": "05:30"}, {"metrics": 0, "delays": 0, "slice": "06:00"}, {"metrics": 0, "delays": 0, "slice": "06:30"}, {"metrics": 0, "delays": 0, "slice": "07:00"}, {"metrics": 0, "delays": 0, "slice": "07:30"}, {"metrics": 0, "delays": 0, "slice": "08:00"}, {"metrics": 0, "delays": 0, "slice": "08:30"}, {"metrics": 0, "delays": 0, "slice": "09:00"}, {"metrics": 0, "delays": 0, "slice": "09:30"}]}
+{
+    "dailyMetric": 3.604928543285934,
+    "slices": [
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "10:00"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "10:30"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "11:00"
+        },
+        {
+            "metrics": 17.591145833333332,
+            "delays": 22.516666666666666,
+            "slice": "11:30"
+        },
+        {
+            "metrics": 37.266666666666666,
+            "delays": 45.86666666666667,
+            "slice": "12:00"
+        },
+        {
+            "metrics": 20.3484375,
+            "delays": 24.116666666666667,
+            "slice": "12:30"
+        },
+        {
+            "metrics": 29.633333333333333,
+            "delays": 33.86666666666667,
+            "slice": "13:00"
+        },
+        {
+            "metrics": 0.0,
+            "delays": 0,
+            "slice": "13:30"
+        },
+        {
+            "metrics": 0.0,
+            "delays": 0,
+            "slice": "14:00"
+        },
+        {
+            "metrics": 0.0,
+            "delays": 0,
+            "slice": "14:30"
+        },
+        {
+            "metrics": 0.0,
+            "delays": 0,
+            "slice": "15:00"
+        },
+        {
+            "metrics": 0.0,
+            "delays": 0,
+            "slice": "15:30"
+        },
+        {
+            "metrics": 0.0,
+            "delays": 0,
+            "slice": "16:00"
+        },
+        {
+            "metrics": 0.8624999999999998,
+            "delays": 0.6,
+            "slice": "16:30"
+        },
+        {
+            "metrics": 20.35,
+            "delays": 13.566666666666666,
+            "slice": "17:00"
+        },
+        {
+            "metrics": 0.23437499999999994,
+            "delays": 0.15,
+            "slice": "17:30"
+        },
+        {
+            "metrics": 1.4625000000000004,
+            "delays": 0.9,
+            "slice": "18:00"
+        },
+        {
+            "metrics": 1.8,
+            "delays": 1.0666666666666667,
+            "slice": "18:30"
+        },
+        {
+            "metrics": 0.9041666666666667,
+            "delays": 0.5166666666666667,
+            "slice": "19:00"
+        },
+        {
+            "metrics": 0.0,
+            "delays": 0,
+            "slice": "19:30"
+        },
+        {
+            "metrics": 1.46875,
+            "delays": 0.7833333333333333,
+            "slice": "20:00"
+        },
+        {
+            "metrics": 0.0,
+            "delays": 0,
+            "slice": "20:30"
+        },
+        {
+            "metrics": 2.0,
+            "delays": 1,
+            "slice": "21:00"
+        },
+        {
+            "metrics": 0.0,
+            "delays": 0,
+            "slice": "21:30"
+        },
+        {
+            "metrics": 0.0,
+            "delays": 0,
+            "slice": "22:00"
+        },
+        {
+            "metrics": 0.0,
+            "delays": 0,
+            "slice": "22:30"
+        },
+        {
+            "metrics": 0.0,
+            "delays": 0,
+            "slice": "23:00"
+        },
+        {
+            "metrics": 0.0,
+            "delays": 0,
+            "slice": "23:30"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "00:00"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "00:30"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "01:00"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "01:30"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "02:00"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "02:30"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "03:00"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "03:30"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "04:00"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "04:30"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "05:00"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "05:30"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "06:00"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "06:30"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "07:00"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "07:30"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "08:00"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "08:30"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "09:00"
+        },
+        {
+            "metrics": 0,
+            "delays": 0,
+            "slice": "09:30"
+        }
+    ]
+}
