@@ -115,10 +115,21 @@ times.append(time)
 while True:
     h = int(time[:2])
     m = int(time[2:])
-
+    
     m += 30
-    if 
+    
+    if m == 60:
+        m = 0
+        h += 1
+    
+    if h == 24:
+        break 
+    time = str(h).zfill(2) + str(m).zfill(2)
 
+    times.append(time)
+    
+
+print times 
 
 result = calculateDayMetric(example)
 

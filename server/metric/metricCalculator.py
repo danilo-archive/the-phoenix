@@ -1,4 +1,4 @@
-
+import json
 
 cfg = { # Must be >= 1
     "primary": 1,
@@ -126,6 +126,27 @@ def calculateDayMetric(data):
         "total": meanRatio
     }
     
+file = "CSGTForMetric"
+with open(file + '.json', 'r') as f:
+    data = json.load(f)
+
+result = calculateDayMetric(data)
+
+res = open(file + "_metric.json", "w")
+
+jsonToBe = {
+    "dailyMetric": result["total"],
+    "slices": []
+}
+for i in range(len(result["slicesTags"])):
+    jsonToBe["slices"].append({
+        "slice": result["slicesTags"][i][:2] + ":" + result["slicesTags"][i][2:],
+        "delays": result["delays"][i],
+        "metrics": result["metrics"][i]/2,
+    })
+
+res.write(json.dumps(jsonToBe))
+
 import plotMetric
 
-plotMetric.plotMetric()
+plotMetric.plot(result["slicesTags"], result["delays"], result["metrics"], result["total"])
