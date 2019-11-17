@@ -40,10 +40,16 @@ for (let i = 0; i < datapack.length; i++) {
     }
    
     e.delaySeconds = seconds
-    if (seconds >60){
-      //  console.log(seconds)
-    }
-    
+    if(wtaDate){
+        var d = wtaDate + seconds
+        var date = new Date(d);
+        var minutes = date.getMinutes();
+        var hour = date.getHours();
+
+        e.wta = `${hour}${minutes}`
+        }
     newData.push(e)
 }
 
+
+fs.writeFileSync("tweak_data.json",JSON.stringify(newData), "utf-8")
