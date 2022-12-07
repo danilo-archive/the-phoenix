@@ -18,6 +18,6 @@
   "homepage": "https://github.com/danilo-delbusso/the-phoenix#readme",
   "dependencies": {
     "csv": "^5.3.0",
-    "express": "^4.17.1"
+    "express": "^4.18.2"
   }
 }
